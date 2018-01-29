@@ -39,4 +39,50 @@ public interface IUserService {
      * @return
      */
     ServerResponse<String> checkValid(String str, String type);
+
+    /**
+     * 获取密码提示问题
+     *
+     * @param username 用户名
+     *
+     * @return
+     */
+    ServerResponse<String> selectQuestion(String username);
+
+    /**
+     * 检验问题答案
+     *
+     * @param username 用户名
+     * @param question 问题
+     * @param answer   问题答案
+     *
+     * @return
+     */
+    ServerResponse<String> checkAnswer(String username, String question, String answer);
+
+    /**
+     * 更新密码
+     *
+     * @param username    用户名
+     * @param passwordNew 新密码
+     * @param forgetToken token
+     *
+     * @return
+     */
+    ServerResponse<String> forgetResetPassword(String username, String passwordNew, String forgetToken);
+
+    /**
+     * 修改密码
+     *
+     * @param passwordOld 旧密码
+     * @param passwordNew 新密码
+     * @param user        用户
+     *
+     * @return
+     */
+    ServerResponse<String> resetPassword(String passwordOld, String passwordNew, User user);
+
+    ServerResponse<User> updateUserInfo(User user);
+
+    ServerResponse<User> getInformation(Integer userId);
 }
